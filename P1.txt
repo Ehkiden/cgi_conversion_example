@@ -1,0 +1,68 @@
+Group Members: Trent Woods, Jared Rigdon 
+
+Outside Reference: https://docs.python.org/3/library/cgi.html
+
+URL to our project:
+http://cs.uky.edu/~tmwo226/CS316/Project1/travel.html
+
+Project Description: Display a html document with 7 textboxes and a submit button. When the user input the desired values in the textboxes and presses submit, it will pass the user input into a cgi script to comput the distance between the two points by using the law of cosin and then display the answer.
+
+********************
+
+Questions:
+What does your CGI do if one of the fields is completely missing (the field itself)?
+The cgi will display an error message that prompts the user to fill all required text documents.
+
+********************
+
+What does your CGI do if the value of a field is blank?
+The cgi will display an error message that prompts the user to fill all required text documents.
+
+********************
+
+What is an example curl command to produce an answer?  What answer did you receive?
+curl 'http://cs.uky.edu/~tmwo226/CS316/Project1/galactic_travel.cgi?distx=2.0&unitx=parsec&disty=2.0&unity=lightyear&anglea=2.0&unita=xarnian&unitanswer=kilometer'
+
+Answer:
+<html>
+
+            <head>
+            <title>Intergalactic Travel Agency</title>
+            </head>
+
+            <body>
+                <h1>Intergalactic Travel Agency</h1>
+                <h2>By: Trent Woods and Jared Rigdon</h2>
+                <h2>Compute distance between 2 places</h2>
+                <h3>Input Format: </h3>
+                The unit types this program can convert are included in the following
+                <br>
+                <h4>Distance: lightyear, parsec, kilometer, xlarn</h4>
+                <h4>Angle: radian, degree, xarnian</h4>
+                <form action="galactic_travel.cgi" method='get'>
+                    Origin Distance to Earth:
+                distx <input type = "text" name="distx" value="2.0">
+                unitx <input type = "text" name ="unitx" value="parsec"><br><br>
+                    Destination Distance to Earth:
+                disty <input type = "text" name="disty" value="2.0">
+                unity <input type = "text" name ="unity" value="lightyear"><br><br>
+                    Angle Seperation from Earth:
+                anglea <input type = "text" name="anglea" value="2.0">
+                unita <input type = "text" name ="unita" value="xarnian"><br><br>
+                    Distance computed:
+                unitanswer <input type = "text" name="unitanswer" value="1.38668004144"> <br><br>
+                    <input type="submit" value="Compute">
+                </form>
+            </body>
+
+            </html>
+
+********************
+
+What happens if one of the field values submitted is a string of 100 characters ? 1000 characters? 10000 characters?
+The cgi will display an error message that states invalid units.
+
+********************
+
+If you were given 50 new distance conversion factors for all the worlds using the CGI, approximately how many lines of code would you need to add to your program?
+Assuming the converstion factors are based on the standard common unit used in the cgi, then no new lines of code will need to be added as they would be added to the current dictionary dist_units and array dist_list.
